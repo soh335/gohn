@@ -10,6 +10,7 @@ import (
 	"net/rpc"
 	"net/rpc/jsonrpc"
 	"os"
+	"time"
 )
 
 type Manager int
@@ -59,8 +60,8 @@ func playHandle(w http.ResponseWriter, req *http.Request, configLoader *ConfigLo
 
 	m4a := <-configLoader.responseChan
 	if m4a != nil {
-		var reply string
-		err := configLoader.client.Call("Executor.Play", *m4a, &reply)
+		var res PlayResponse
+		err := configLoader.client.Call("Executor.Play", *m4a, &res)
 		if err != nil {
 			log.Println("play call", err)
 		}

@@ -33,6 +33,10 @@ type Video struct {
 	Id string
 }
 
+type PlayResponse struct {
+	Msg string
+}
+
 func (e *Executor) Convert(source *Source, m4a *M4A) error {
 	log.Println("call convert", source, m4a)
 	filename, err := e.getM4A(source)
@@ -44,7 +48,7 @@ func (e *Executor) Convert(source *Source, m4a *M4A) error {
 	}
 }
 
-func (e *Executor) Play(m4a *M4A, reply *string) error {
+func (e *Executor) Play(m4a *M4A, res *PlayResponse) error {
 	log.Println("call play", m4a)
 	path, err := exec.LookPath("afplay")
 	if err != nil {
@@ -61,8 +65,7 @@ func (e *Executor) Play(m4a *M4A, reply *string) error {
 		}
 	}()
 
-	ok := "ok"
-	reply = &ok
+	res.Msg = "ok"
 
 	return nil
 }
