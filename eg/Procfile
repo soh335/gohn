@@ -1,0 +1,2 @@
+rpc: ./../bin/rpc/rpc
+http: ./../bin/http/http --config config.json

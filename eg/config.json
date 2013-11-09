@@ -1,0 +1,25 @@
+{
+  "miyazaki-aoi": [
+    {
+      "VideoUrl": "http://www.youtube.com/watch?v=U8HT8JuLS1M",
+      "Offset": "10",
+      "Duration": "10"
+    },
+    {
+      "VideoUrl": "http://www.youtube.com/watch?v=QjikKRJi7qc",
+      "Offset": "5",
+      "Duration": "12"
+    },
+    {
+      "VideoUrl": "http://www.youtube.com/watch?v=5oEqAjn4g2A",
+      "Offset": "23",
+      "Duration": "30"
+    }
+  ],
+  "yoshitaka-yuriko": [
+    {
+      "VideoUrl": "http://www.youtube.com/watch?v=SaqqkowHyZA",
+      "Offset": "0"
+    }
+  ]
+}
