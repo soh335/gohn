@@ -74,9 +74,16 @@ func playHandle(w http.ResponseWriter, req *http.Request, configLoader *ConfigLo
 
 func (c *ConfigLoader) Start(host string, port string, rpcParallel int) {
 	addr := net.JoinHostPort(host, port)
-	client, err := jsonrpc.Dial("tcp", addr)
-	if err != nil {
-		log.Fatal("rpc connect", err)
+	var client *rpc.Client
+	var err error
+	for {
+		client, err = jsonrpc.Dial("tcp", addr)
+		if err != nil {
+			log.Println("rpc connect", err)
+			time.Sleep(time.Second * 1)
+		} else {
+			break
+		}
 	}
 	log.Println("connect to rcp server", addr)
 
