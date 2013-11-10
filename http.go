@@ -162,7 +162,7 @@ func openConfig(path string) *Config {
 	err = json.Unmarshal(bytes, &config)
 
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("config json parse err", err)
 	}
 
 	return &config
