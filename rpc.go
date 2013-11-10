@@ -17,6 +17,7 @@ import (
 
 type Executor struct {
 	DataDir string
+	playCmd string
 }
 
 type Source struct {
@@ -50,7 +51,7 @@ func (e *Executor) Convert(source *Source, m4a *M4A) error {
 
 func (e *Executor) Play(m4a *M4A, res *PlayResponse) error {
 	log.Println("call play", m4a)
-	path, err := exec.LookPath("afplay")
+	path, err := exec.LookPath(e.playCmd)
 	if err != nil {
 		return err
 	}
@@ -70,9 +71,10 @@ func (e *Executor) Play(m4a *M4A, res *PlayResponse) error {
 	return nil
 }
 
-func StartRpcServer(host string, port string, dataDir string) {
+func StartRpcServer(host string, port string, dataDir string, playCmd string) {
 	executor := new(Executor)
 	executor.DataDir = dataDir
+	executor.playCmd = playCmd
 
 	server := rpc.NewServer()
 	server.Register(executor)

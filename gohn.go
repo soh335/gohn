@@ -14,6 +14,7 @@ var (
 	rpcPort     = flag.String("rpcPort", "5556", "rpcPort")
 	rpcParallel = flag.Int("rpcParallel", 10, "rpcParallel")
 	config      = flag.String("config", "", "config json")
+	playCmd     = flag.String("playCmd", "afplay", "play cmd")
 )
 
 func main() {
@@ -24,7 +25,7 @@ func main() {
 		log.Fatal("crete dir err", *dataDir, err)
 	}
 
-	go StartRpcServer(*rpcHost, *rpcPort, *dataDir)
+	go StartRpcServer(*rpcHost, *rpcPort, *dataDir, *playCmd)
 
 	configLoader := NewConfigLoader(*config)
 	go configLoader.Start(*rpcHost, *rpcPort, *rpcParallel)

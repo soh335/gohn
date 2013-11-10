@@ -7,7 +7,7 @@ gohn is simple play sound by http access tool from youtube.
 * go
 * youtube-dl
 * ffmpeg
-* afplay (mac command)
+* play sound command ( default is afplay )
 
 ## example
 
