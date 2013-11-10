@@ -1,4 +1,4 @@
-package gohn
+package main
 
 import (
 	"encoding/json"
