@@ -1,6 +1,6 @@
 # gohn
 
-gohn is simple play sound by http access tool from youtube.
+gohn is simple play youtube sound by http access tool. it is easy to hit a bell, "gohn".
 
 ## require
 
